@@ -79,14 +79,17 @@
 
 
 
+<meta name="description" content="动态规划注意点：可以考虑从一个已知状态应该更新哪些后续状态，也可以考虑如何计算出一个状态（一个状态由哪些状态来得到）。两种思维方式都可以考虑，正向思维和逆向思维，根据当时情况来决定。有时两种选择的差异会体现出来。 动态规划优化可以从时间和空间两方面上来进行。空间上，一般利用滚动数组可以减少空间的维数。时间上，可以仔细观察结构，注意决策集合的范围随状态变化情况。如果决策集合中元素只增不见，就可以把时">
 <meta property="og:type" content="article">
 <meta property="og:title" content="dp小结">
 <meta property="og:url" content="http://yoursite.com/2018/04/18/dp小结/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="动态规划注意点：可以考虑从一个已知状态应该更新哪些后续状态，也可以考虑如何计算出一个状态（一个状态由哪些状态来得到）。两种思维方式都可以考虑，正向思维和逆向思维，根据当时情况来决定。有时两种选择的差异会体现出来。 动态规划优化可以从时间和空间两方面上来进行。空间上，一般利用滚动数组可以减少空间的维数。时间上，可以仔细观察结构，注意决策集合的范围随状态变化情况。如果决策集合中元素只增不见，就可以把时">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-18T14:32:50.912Z">
+<meta property="og:updated_time" content="2018-04-18T14:39:00.561Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="dp小结">
+<meta name="twitter:description" content="动态规划注意点：可以考虑从一个已知状态应该更新哪些后续状态，也可以考虑如何计算出一个状态（一个状态由哪些状态来得到）。两种思维方式都可以考虑，正向思维和逆向思维，根据当时情况来决定。有时两种选择的差异会体现出来。 动态规划优化可以从时间和空间两方面上来进行。空间上，一般利用滚动数组可以减少空间的维数。时间上，可以仔细观察结构，注意决策集合的范围随状态变化情况。如果决策集合中元素只增不见，就可以把时">
 
 
 
@@ -296,7 +299,10 @@
       
 
       
-        
+        <h1 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h1><h2 id="注意点："><a href="#注意点：" class="headerlink" title="注意点："></a>注意点：</h2><h3 id="可以考虑从一个已知状态应该更新哪些后续状态，也可以考虑如何计算出一个状态（一个状态由哪些状态来得到）。"><a href="#可以考虑从一个已知状态应该更新哪些后续状态，也可以考虑如何计算出一个状态（一个状态由哪些状态来得到）。" class="headerlink" title="可以考虑从一个已知状态应该更新哪些后续状态，也可以考虑如何计算出一个状态（一个状态由哪些状态来得到）。"></a>可以考虑从一个已知状态应该更新哪些后续状态，也可以考虑如何计算出一个状态（一个状态由哪些状态来得到）。</h3><p>两种思维方式都可以考虑，正向思维和逆向思维，根据当时情况来决定。有时两种选择的差异会体现出来。</p>
+<h3 id="动态规划优化可以从时间和空间两方面上来进行。"><a href="#动态规划优化可以从时间和空间两方面上来进行。" class="headerlink" title="动态规划优化可以从时间和空间两方面上来进行。"></a>动态规划优化可以从时间和空间两方面上来进行。</h3><p>空间上，一般利用滚动数组可以减少空间的维数。<br>时间上，可以仔细观察结构，注意决策集合的范围随状态变化情况。<br>如果决策集合中元素只增不见，就可以把时间复杂度降一个量级。</p>
+<h3 id="每个子问题求解过程称为一个阶段。求解线性dp，先确定阶段，定下状态时，必要的附加信息也可以加入。确定状态以后，要尽可能缩小维度，寻找各维度之间的关系，排除不需要的维度。"><a href="#每个子问题求解过程称为一个阶段。求解线性dp，先确定阶段，定下状态时，必要的附加信息也可以加入。确定状态以后，要尽可能缩小维度，寻找各维度之间的关系，排除不需要的维度。" class="headerlink" title="每个子问题求解过程称为一个阶段。求解线性dp，先确定阶段，定下状态时，必要的附加信息也可以加入。确定状态以后，要尽可能缩小维度，寻找各维度之间的关系，排除不需要的维度。"></a>每个子问题求解过程称为一个阶段。求解线性dp，先确定阶段，定下状态时，必要的附加信息也可以加入。确定状态以后，要尽可能缩小维度，寻找各维度之间的关系，排除不需要的维度。</h3><h3 id="有时可以通过额外算法确定dp顺序（比如先给元素排序），也可以在状态空间中利用等效手法对状态进行缩放。"><a href="#有时可以通过额外算法确定dp顺序（比如先给元素排序），也可以在状态空间中利用等效手法对状态进行缩放。" class="headerlink" title="有时可以通过额外算法确定dp顺序（比如先给元素排序），也可以在状态空间中利用等效手法对状态进行缩放。"></a>有时可以通过额外算法确定dp顺序（比如先给元素排序），也可以在状态空间中利用等效手法对状态进行缩放。</h3><h3 id="动态规划中循环的顺序是固定的，不要搞混。从外层到内层分别是阶段——阶段——决策，不能颠倒。"><a href="#动态规划中循环的顺序是固定的，不要搞混。从外层到内层分别是阶段——阶段——决策，不能颠倒。" class="headerlink" title="动态规划中循环的顺序是固定的，不要搞混。从外层到内层分别是阶段——阶段——决策，不能颠倒。"></a>动态规划中循环的顺序是固定的，不要搞混。从外层到内层分别是阶段——阶段——决策，不能颠倒。</h3><h3 id="动态规划三要素：阶段-状态-决策"><a href="#动态规划三要素：阶段-状态-决策" class="headerlink" title="动态规划三要素：阶段 状态 决策"></a>动态规划三要素：阶段 状态 决策</h3><p>动态规划三前提：无后效性 最优子结构 子问题重叠</p>
+<h3 id="任意选择一个位置断开，并复制成一条2倍长度的链，是动态规划中解决环形问题常用的方法。"><a href="#任意选择一个位置断开，并复制成一条2倍长度的链，是动态规划中解决环形问题常用的方法。" class="headerlink" title="任意选择一个位置断开，并复制成一条2倍长度的链，是动态规划中解决环形问题常用的方法。"></a>任意选择一个位置断开，并复制成一条2倍长度的链，是动态规划中解决环形问题常用的方法。</h3>
       
     </div>
     
@@ -380,8 +386,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -423,6 +438,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#动态规划"><span class="nav-number">1.</span> <span class="nav-text">动态规划</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#注意点："><span class="nav-number">1.1.</span> <span class="nav-text">注意点：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#可以考虑从一个已知状态应该更新哪些后续状态，也可以考虑如何计算出一个状态（一个状态由哪些状态来得到）。"><span class="nav-number">1.1.1.</span> <span class="nav-text">可以考虑从一个已知状态应该更新哪些后续状态，也可以考虑如何计算出一个状态（一个状态由哪些状态来得到）。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态规划优化可以从时间和空间两方面上来进行。"><span class="nav-number">1.1.2.</span> <span class="nav-text">动态规划优化可以从时间和空间两方面上来进行。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#每个子问题求解过程称为一个阶段。求解线性dp，先确定阶段，定下状态时，必要的附加信息也可以加入。确定状态以后，要尽可能缩小维度，寻找各维度之间的关系，排除不需要的维度。"><span class="nav-number">1.1.3.</span> <span class="nav-text">每个子问题求解过程称为一个阶段。求解线性dp，先确定阶段，定下状态时，必要的附加信息也可以加入。确定状态以后，要尽可能缩小维度，寻找各维度之间的关系，排除不需要的维度。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#有时可以通过额外算法确定dp顺序（比如先给元素排序），也可以在状态空间中利用等效手法对状态进行缩放。"><span class="nav-number">1.1.4.</span> <span class="nav-text">有时可以通过额外算法确定dp顺序（比如先给元素排序），也可以在状态空间中利用等效手法对状态进行缩放。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态规划中循环的顺序是固定的，不要搞混。从外层到内层分别是阶段——阶段——决策，不能颠倒。"><span class="nav-number">1.1.5.</span> <span class="nav-text">动态规划中循环的顺序是固定的，不要搞混。从外层到内层分别是阶段——阶段——决策，不能颠倒。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态规划三要素：阶段-状态-决策"><span class="nav-number">1.1.6.</span> <span class="nav-text">动态规划三要素：阶段 状态 决策</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#任意选择一个位置断开，并复制成一条2倍长度的链，是动态规划中解决环形问题常用的方法。"><span class="nav-number">1.1.7.</span> <span class="nav-text">任意选择一个位置断开，并复制成一条2倍长度的链，是动态规划中解决环形问题常用的方法。</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
