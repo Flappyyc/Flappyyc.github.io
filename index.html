@@ -300,9 +300,9 @@
       
         
           
-            <h1 id="「bzoj1055」玩具取名"><a href="#「bzoj1055」玩具取名" class="headerlink" title="「bzoj1055」玩具取名"></a>「bzoj1055」玩具取名</h1><h2 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h2><h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>　　某人有一套玩具，并想法给玩具命名。首先他选择WING四个字母中的任意一个字母作为玩具的基本名字。然后<br>　　他会根据自己的喜好，将名字中任意一个字母用“WING”中任意两个字母代替，使得自己的名字能够扩充得很长。<br>　　现在，他想请你猜猜某一个很长的名字，最初可能是由哪几个字母变形过来的。</p>
-<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>　　第一行四个整数W、I、N、G。表示每一个字母能由几种两个字母所替代。接下来W行，每行两个字母,表示W可<br>　　以用这两个字母替代。接下来I行，每行两个字母,表示I可以用这两个字母替代。接下来N行，每行两个字母,表示N<br>　　可以用这两个字母替代。接下来G行，每行两个字母,表示G可以用这两个字母替代。最后一行一个长度不超过Len的<br>　　字符串。表示这个玩具的名字。</p>
-<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>　　　一行字符串，该名字可能由哪些字母变形而得到。（按照WING的顺序输出）如果给的名字不能由任何一个字母<br>　　变形而得到则输出“The name is wrong!”</p>
+            <h1 id="「bzoj1055」玩具取名"><a href="#「bzoj1055」玩具取名" class="headerlink" title="「bzoj1055」玩具取名"></a>「bzoj1055」玩具取名</h1><h2 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h2><h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>　　某人有一套玩具，并想法给玩具命名。首先他选择WING四个字母中的任意一个字母作为玩具的基本名字。然后他会根据自己的喜好，将名字中任意一个字母用“WING”中任意两个字母代替，使得自己的名字能够扩充得很长。<br>　　现在，他想请你猜猜某一个很长的名字，最初可能是由哪几个字母变形过来的。</p>
+<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>　　第一行四个整数W、I、N、G。表示每一个字母能由几种两个字母所替代。接下来W行，每行两个字母,表示W可以用这两个字母替代。接下来I行，每行两个字母,表示I可以用这两个字母替代。接下来N行，每行两个字母,表示N可以用这两个字母替代。接下来G行，每行两个字母,表示G可以用这两个字母替代。最后一行一个长度不超过Len的字符串。表示这个玩具的名字。</p>
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>　　　一行字符串，该名字可能由哪些字母变形而得到。（按照WING的顺序输出）如果给的名字不能由任何一个字母变形而得到则输出“The name is wrong!”</p>
 <h3 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h3><p>　　1 1 1 1<br>　　II<br>　　WW<br>　　WW<br>　　IG<br>　　IIII</p>
 <h3 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h3><p>　　IN</p>
 <h3 id="HINT"><a href="#HINT" class="headerlink" title="HINT"></a>HINT</h3><p>　　W可以变成II所以IIII可以缩成WW IN均能变成WW所以WW又可以缩成I或者N 所以最终答案应该按照“WING”的顺序</p>
