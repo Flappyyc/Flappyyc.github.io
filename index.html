@@ -229,6 +229,135 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/21/「bzoj1055」玩具取名/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/21/「bzoj1055」玩具取名/" itemprop="url">「bzoj1055」玩具取名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-21T16:35:34+08:00">
+                2018-04-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="「bzoj1055」玩具取名"><a href="#「bzoj1055」玩具取名" class="headerlink" title="「bzoj1055」玩具取名"></a>「bzoj1055」玩具取名</h1><h2 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h2><h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>　　某人有一套玩具，并想法给玩具命名。首先他选择WING四个字母中的任意一个字母作为玩具的基本名字。然后<br>　　他会根据自己的喜好，将名字中任意一个字母用“WING”中任意两个字母代替，使得自己的名字能够扩充得很长。<br>　　现在，他想请你猜猜某一个很长的名字，最初可能是由哪几个字母变形过来的。</p>
+<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>　　第一行四个整数W、I、N、G。表示每一个字母能由几种两个字母所替代。接下来W行，每行两个字母,表示W可<br>　　以用这两个字母替代。接下来I行，每行两个字母,表示I可以用这两个字母替代。接下来N行，每行两个字母,表示N<br>　　可以用这两个字母替代。接下来G行，每行两个字母,表示G可以用这两个字母替代。最后一行一个长度不超过Len的<br>　　字符串。表示这个玩具的名字。</p>
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>　　　一行字符串，该名字可能由哪些字母变形而得到。（按照WING的顺序输出）如果给的名字不能由任何一个字母<br>　　变形而得到则输出“The name is wrong!”</p>
+<h3 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h3><p>　　1 1 1 1<br>　　II<br>　　WW<br>　　WW<br>　　IG<br>　　IIII</p>
+<h3 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h3><p>　　IN</p>
+<h3 id="HINT"><a href="#HINT" class="headerlink" title="HINT"></a>HINT</h3><p>　　W可以变成II所以IIII可以缩成WW IN均能变成WW所以WW又可以缩成I或者N 所以最终答案应该按照“WING”的顺序</p>
+<h3 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h3><pre><code>IN
+</code></pre><h3 id="数据范围"><a href="#数据范围" class="headerlink" title="[数据范围]"></a>[数据范围]</h3><p>　　100%数据满足Len&lt;=200，W、I、N、G&lt;=16</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>这是一道比较容易的区间dp。首先，自始至终字母一定是只有W I N G这四个。<br>定义f[i,j,k]代表，从i到j的字符串可以由一个第k种字母开始并形成。<br>当k可变成ab并且(f[i][p][a] &amp; f[p+1][j][b]) (i&lt;=p&lt;j)时，f[i][j][k]=true。<br>由于方程的形式，此题用记忆化搜素。注意，区间dp经常会用到记忆化搜索。</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include&lt;cstdio&gt;</span></span><br><span class="line"><span class="comment">#include&lt;iostream&gt;</span></span><br><span class="line"><span class="comment">#include&lt;string&gt;</span></span><br><span class="line"><span class="comment">#include&lt;algorithm&gt;</span></span><br><span class="line">using namespace std;</span><br><span class="line">int x[5],f[205][205][5];</span><br><span class="line">string mp[5][20],name;</span><br><span class="line">bool flag=<span class="literal">false</span>;</span><br><span class="line">int fmp[300];</span><br><span class="line">char alp[5];</span><br><span class="line">bool solve(int l,int r,int id)&#123;</span><br><span class="line">    <span class="keyword">if</span> (f[l][r][id]!=-1) <span class="built_in">return</span> f[l][r][id];</span><br><span class="line">    <span class="keyword">if</span> (l==r) <span class="built_in">return</span> name[l]==alp[id];</span><br><span class="line">    <span class="keyword">for</span> (int k=1; k&lt;=x[id]; k++)</span><br><span class="line">        <span class="keyword">for</span> (int j=l+1; j&lt;=r; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (solve(l,j-1,fmp[mp[id][k][0]]) &amp;&amp; solve(j,r,fmp[mp[id][k][1]]))</span><br><span class="line">            <span class="built_in">return</span> f[l][r][id]=1;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="built_in">return</span> f[l][r][id]=0;</span><br><span class="line">&#125;</span><br><span class="line">int <span class="function"><span class="title">main</span></span>()&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    cin&gt;&gt;x[1]&gt;&gt;x[2]&gt;&gt;x[3]&gt;&gt;x[4];</span><br><span class="line">    <span class="keyword">for</span> (int i=1; i&lt;=4; i++)</span><br><span class="line">    <span class="keyword">for</span> (int j=1; j&lt;=x[i]; j++)</span><br><span class="line">    cin&gt;&gt;mp[i][j];</span><br><span class="line">    cin&gt;&gt;name;</span><br><span class="line">    int len=name.length();</span><br><span class="line">    alp[1]=<span class="string">'W'</span>; alp[2]=<span class="string">'I'</span>; alp[3]=<span class="string">'N'</span>; alp[4]=<span class="string">'G'</span>;</span><br><span class="line">    fmp[<span class="string">'W'</span>]=1; fmp[<span class="string">'I'</span>]=2; fmp[<span class="string">'N'</span>]=3; fmp[<span class="string">'G'</span>]=4;</span><br><span class="line">    <span class="keyword">for</span> (int i=0; i&lt;=200; i++)</span><br><span class="line">        <span class="keyword">for</span> (int j=0; j&lt;=200; j++)</span><br><span class="line">            <span class="keyword">for</span> (int k=0; k&lt;=4; k++)</span><br><span class="line">                f[i][j][k]=-1;</span><br><span class="line">    <span class="keyword">for</span> (int i=1; i&lt;=4; i++) <span class="keyword">if</span> (solve(0,len-1,i)) &#123;</span><br><span class="line">        cout&lt;&lt;alp[i];</span><br><span class="line">        flag=<span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!flag) cout&lt;&lt;<span class="string">"The name is wrong!"</span>;</span><br><span class="line">    cout&lt;&lt;endl;</span><br><span class="line">    <span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/18/dp小结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -528,7 +657,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
