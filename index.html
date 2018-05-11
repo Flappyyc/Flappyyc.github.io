@@ -229,6 +229,134 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/11/「bzoj1833」数字计数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/11/「bzoj1833」数字计数/" itemprop="url">「bzoj1833」数字计数</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-11T15:21:14+08:00">
+                2018-05-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>给定两个正整数a和b，求在[a,b]中的所有整数中，每个数码(digit)各出现了多少次。</p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>输入文件中仅包含一行两个整数a、b，含义如上所述。</p>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>输出文件中包含一行10个整数，分别表示0-9在[a,b]中出现了多少次。</p>
+<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><p>1 99</p>
+<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><p>9 20 20 20 20 20 20 20 20 20</p>
+<h2 id="HINT"><a href="#HINT" class="headerlink" title="HINT"></a>HINT</h2><p>30%的数据中，a&lt;=b&lt;=10^6；<br>100%的数据中，a&lt;=b&lt;=10^12。</p>
+<h2 id="Source"><a href="#Source" class="headerlink" title="Source"></a>Source</h2><p>Day1</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>对数位dp还不是很熟练，需要多多练习。首先，用到部分和思想，分别算出[1,b]与[1,a-1]。两者都算出后相减即为原题答案。现假设求[1,x]，设x有7位，则可以通过预处理求出999999以下的数每个数字的数量，然后再求1000000-x的。利用数位思想，即可求出。</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include&lt;cstdio&gt;</span></span><br><span class="line"><span class="comment">#include&lt;iostream&gt;</span></span><br><span class="line">using namespace std;</span><br><span class="line">long long po[20],f[15][11][11],a,b,p[10][2];</span><br><span class="line">int num[15],len;</span><br><span class="line">void solve(long long x,int id)&#123;</span><br><span class="line">    long long now=x;</span><br><span class="line">    len=0;</span><br><span class="line">    <span class="keyword">while</span> (now) &#123;</span><br><span class="line">        num[++len]=now % 10;</span><br><span class="line">        now /= 10;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (int i=1; i&lt;len; i++)</span><br><span class="line">    <span class="keyword">for</span> (int j=1; j&lt;=9; j++)</span><br><span class="line">    <span class="keyword">for</span> (int k=0; k&lt;=9; k++)</span><br><span class="line">        p[k][id]+=f[i][j][k];</span><br><span class="line">    <span class="keyword">for</span> (int i=len; i; i--) &#123;</span><br><span class="line">        <span class="keyword">for</span> (int j=0; j&lt;num[i]; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i==len &amp;&amp; j==0) <span class="built_in">continue</span>;</span><br><span class="line">            <span class="keyword">for</span> (int k=0; k&lt;=9; k++) p[k][id]+=f[i][j][k];</span><br><span class="line">        &#125;</span><br><span class="line">        p[num[i]][id]+=((x%po[i-1])+1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">int <span class="function"><span class="title">main</span></span>()&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    cin&gt;&gt;a&gt;&gt;b;</span><br><span class="line">    po[0]=1;</span><br><span class="line">    <span class="keyword">for</span> (int i=1; i&lt;=12; i++) po[i]=po[i-1]*10;</span><br><span class="line">    <span class="keyword">for</span> (int i=0; i&lt;10; i++) f[1][i][i]=1;</span><br><span class="line">    <span class="keyword">for</span> (int i=2; i&lt;=12; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (int j=0; j&lt;=9; j++)</span><br><span class="line">            <span class="keyword">for</span> (int k=0; k&lt;=9; k++) &#123;</span><br><span class="line">                <span class="keyword">for</span> (int z=0; z&lt;=9; z++) f[i][k][z]+=f[i-1][j][z];</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="keyword">for</span> (int k=0; k&lt;=9; k++) f[i][k][k]+=po[i-1];</span><br><span class="line">    &#125;</span><br><span class="line">    solve(b,0); solve(a-1,1);</span><br><span class="line">    <span class="keyword">for</span> (int i=0; i&lt;=9; i++) &#123;</span><br><span class="line">        cout&lt;&lt;p[i][0]-p[i][1];</span><br><span class="line">        <span class="keyword">if</span> (i!=9) cout&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">        <span class="keyword">else</span> cout&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/24/「bzoj1068-1090」压缩-字符串折叠/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -922,7 +1050,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
