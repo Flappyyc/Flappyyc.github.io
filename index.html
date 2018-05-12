@@ -229,6 +229,134 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/12/「bzoj3450」Easy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/12/「bzoj3450」Easy/" itemprop="url">「bzoj3450」Easy</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-12T13:12:10+08:00">
+                2018-05-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>某一天WJMZBMR在打osu~~~但是他太弱逼了，有些地方完全靠运气:(<br>我们来简化一下这个游戏的规则：有n次点击要做，成功了就是o，失败了就是x，分数是按comb计算的，连续a个comb就有a<em>a分，comb就是极大的连续o。比如ooxxxxooooxxx，分数就是2</em>2+4*4=4+16=20。Sevenkplus闲的慌就看他打了一盘，有些地方跟运气无关要么是o要么是x，有些地方o或者x各有50%的可能性，用?号来表示。比如oo?xx就是一个可能的输入。那么WJMZBMR这场osu的期望得分是多少呢？比如oo?xx的话，?是o的话就是oooxx =&gt; 9，是x的话就是ooxxx =&gt; 4 。期望自然就是(4+9)/2 =6.5了</p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>第一行一个整数n，表示点击的个数。接下来一个字符串，每个字符都是ox？中的一个</p>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>一行一个浮点数表示答案，四舍五入到小数点后4位<br>如果害怕精度跪建议用long double或者extended</p>
+<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><p>4<br>????</p>
+<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><p>4.1250</p>
+<h2 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h2><p>n&lt;=300000</p>
+<h2 id="Source"><a href="#Source" class="headerlink" title="Source"></a>Source</h2><p>我们都爱GYZ杯</p>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>概率与期望dp基础题，无法直接求出答案的期望值，可以利用当前的连续的o的长度期望值来得出答案期望值。开两个数组，线性一编就可以了，时间复杂度O(n)。</p>
+<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include&lt;cstdio&gt;</span></span><br><span class="line"><span class="comment">#include&lt;iostream&gt;</span></span><br><span class="line"><span class="comment">#include&lt;cstring&gt;</span></span><br><span class="line"><span class="comment">#include&lt;algorithm&gt;</span></span><br><span class="line">using namespace std;</span><br><span class="line">const int maxn=300007;</span><br><span class="line">double f[maxn],l[maxn];</span><br><span class="line">int n;</span><br><span class="line">char s[maxn];</span><br><span class="line">int <span class="function"><span class="title">main</span></span>()&#123;</span><br><span class="line">    scanf(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    scanf(<span class="string">"%s"</span>,s+1);</span><br><span class="line">    <span class="keyword">for</span> (int i=1; i&lt;=n; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (s[i]==<span class="string">'o'</span>) &#123;</span><br><span class="line">            l[i]=l[i-1]+1.0;</span><br><span class="line">            f[i]=f[i-1]+2.0*l[i-1]+1.0;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (s[i]==<span class="string">'x'</span>) &#123;l[i]=0; f[i]=f[i-1];&#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;l[i]=(l[i-1]+1)/2.0; f[i]=f[i-1]+l[i-1]+0.5;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%.4lf\n"</span>,f[n]);</span><br><span class="line"><span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/11/「bzoj1026」Windy数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1179,7 +1307,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
