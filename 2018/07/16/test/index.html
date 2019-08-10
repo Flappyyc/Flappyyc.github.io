@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="">
+<html class="theme-next mist use-motion" lang="">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859#include&amp;lt;cstdio&amp;gt;#include&amp;lt;iostream&amp;gt;#include&amp;lt;cstring&amp;gt;#include&amp;lt;algorithm&amp;">
+<meta name="description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465#include&amp;lt;iostream&amp;gt;#include&amp;lt;cmath&amp;gt;#include&amp;lt;algorithm&amp;gt;using nam">
 <meta property="og:type" content="article">
 <meta property="og:title" content="test">
 <meta property="og:url" content="http://yoursite.com/2018/07/16/test/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859#include&amp;lt;cstdio&amp;gt;#include&amp;lt;iostream&amp;gt;#include&amp;lt;cstring&amp;gt;#include&amp;lt;algorithm&amp;">
+<meta property="og:description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465#include&amp;lt;iostream&amp;gt;#include&amp;lt;cmath&amp;gt;#include&amp;lt;algorithm&amp;gt;using nam">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-14T03:39:29.478Z">
+<meta property="og:updated_time" content="2018-10-05T06:26:21.101Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="test">
-<meta name="twitter:description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859#include&amp;lt;cstdio&amp;gt;#include&amp;lt;iostream&amp;gt;#include&amp;lt;cstring&amp;gt;#include&amp;lt;algorithm&amp;">
+<meta name="twitter:description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465#include&amp;lt;iostream&amp;gt;#include&amp;lt;cmath&amp;gt;#include&amp;lt;algorithm&amp;gt;using nam">
 
 
 
@@ -97,7 +97,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -319,7 +319,7 @@
       
 
       
-        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include&lt;cstdio&gt;</span></span><br><span class="line"><span class="comment">#include&lt;iostream&gt;</span></span><br><span class="line"><span class="comment">#include&lt;cstring&gt;</span></span><br><span class="line"><span class="comment">#include&lt;algorithm&gt;</span></span><br><span class="line"><span class="comment">#include&lt;cmath&gt;</span></span><br><span class="line">using namespace std;</span><br><span class="line">const int maxn=1000007;</span><br><span class="line">int n,m,x,y,key[maxn],f[maxn],ls[maxn],rs[maxn],dis[maxn];</span><br><span class="line">bool flag[maxn];</span><br><span class="line">int find(int x)&#123;</span><br><span class="line">    <span class="keyword">if</span> (x==f[x]) <span class="built_in">return</span> x;</span><br><span class="line">    f[x]=find(f[x]);</span><br><span class="line">    <span class="built_in">return</span> f[x];</span><br><span class="line">&#125;</span><br><span class="line">int merge(int x,int y) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!x) <span class="built_in">return</span> y;</span><br><span class="line">    <span class="keyword">if</span> (!y) <span class="built_in">return</span> x;</span><br><span class="line">    <span class="keyword">if</span> (key[x]&gt;key[y]) swap(x,y);</span><br><span class="line">    rs[x]=merge(rs[x],y);</span><br><span class="line">    <span class="keyword">if</span> (dis[ls[x]]&lt;dis[rs[x]]) swap(ls[x],rs[x]);</span><br><span class="line">    <span class="keyword">if</span> (!rs[x]) dis[x]=0;</span><br><span class="line">    <span class="keyword">else</span> dis[x]=dis[rs[x]]+1;</span><br><span class="line">    <span class="built_in">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line">void pop(int x)&#123;</span><br><span class="line">    f[x]=merge(ls[x],rs[x]);</span><br><span class="line">    f[f[x]]=f[x];</span><br><span class="line">    ls[x]=rs[x]=dis[x]=key[x]=0;</span><br><span class="line">&#125;</span><br><span class="line">int <span class="function"><span class="title">main</span></span>()&#123;</span><br><span class="line">    //ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span> (int i=1; i&lt;=n; i++) cin&gt;&gt;key[i];</span><br><span class="line">    <span class="keyword">for</span> (int i=1; i&lt;=n; i++) f[i]=i;</span><br><span class="line">    cin&gt;&gt;m;</span><br><span class="line">    <span class="keyword">for</span> (int i=1; i&lt;=m; i++) &#123;</span><br><span class="line">        char c=getchar();</span><br><span class="line">        <span class="keyword">while</span> (c!=<span class="string">'M'</span>&amp;&amp;c!=<span class="string">'K'</span>) c=getchar();</span><br><span class="line">        <span class="keyword">if</span> (c==<span class="string">'M'</span>) &#123;</span><br><span class="line">            cin&gt;&gt;x&gt;&gt;y;</span><br><span class="line">            <span class="keyword">if</span> (flag[x]||flag[y]) <span class="built_in">continue</span>;</span><br><span class="line">            int fx=find(x);</span><br><span class="line">            int fy=find(y);</span><br><span class="line">            <span class="keyword">if</span> (fx!=fy) &#123;</span><br><span class="line">                int top=merge(fx,fy);</span><br><span class="line">                f[fx]=f[fy]=top;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            cin&gt;&gt;x;</span><br><span class="line">            <span class="keyword">if</span> (flag[x]) &#123;cout&lt;&lt;<span class="string">"0"</span>&lt;&lt;endl; <span class="built_in">continue</span>;&#125;</span><br><span class="line">            int fx=find(x);</span><br><span class="line">            flag[fx]=<span class="literal">true</span>;</span><br><span class="line">            cout&lt;&lt;key[fx]&lt;&lt;endl;</span><br><span class="line">            pop(fx);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include&lt;iostream&gt;</span></span><br><span class="line"><span class="comment">#include&lt;cmath&gt;</span></span><br><span class="line"><span class="comment">#include&lt;algorithm&gt;</span></span><br><span class="line">using namespace std;</span><br><span class="line">const int maxn=10007;</span><br><span class="line">const int inf=2147483640;</span><br><span class="line">int n,m,x[maxn];</span><br><span class="line">struct data&#123;</span><br><span class="line">    int lt,rt,val,tag;</span><br><span class="line">&#125;tr[maxn&lt;&lt;2];</span><br><span class="line">void pushdown(int id) &#123;</span><br><span class="line">    <span class="keyword">if</span> (tr[id].lt==tr[id].rt) <span class="built_in">return</span>;</span><br><span class="line">    tr[id*2].val=max(tr[id*2].val,tr[id].tag);</span><br><span class="line">    tr[id*2+1].val=max(tr[id*2+1].val,tr[id].tag);</span><br><span class="line">    tr[id*2].tag=tr[id].tag;</span><br><span class="line">    tr[id*2+1].tag=tr[id].tag;</span><br><span class="line">    tr[id].tag=0;</span><br><span class="line">&#125;</span><br><span class="line">void build(int id,int l,int r)&#123;</span><br><span class="line">    tr[id].lt=l; tr[id].rt=r;</span><br><span class="line">    <span class="keyword">if</span> (l==r) &#123;tr[id].val=x[l]; <span class="built_in">return</span>;&#125;</span><br><span class="line">    int mid=(l+r) &gt;&gt; 1;</span><br><span class="line">    build(id*2,l,mid);</span><br><span class="line">    build(id*2+1,mid+1,r);</span><br><span class="line">    tr[id].val=max(tr[id*2].val,tr[id*2+1].val);</span><br><span class="line">&#125;</span><br><span class="line">void change(int id,int l,int r,int v) &#123;</span><br><span class="line">    int nowl=tr[id].lt,nowr=tr[id].rt;</span><br><span class="line">    <span class="keyword">if</span> (l&lt;=nowl &amp;&amp; nowr&lt;=r) &#123;</span><br><span class="line">        tr[id].val=v;</span><br><span class="line">        tr[id].tag=v;</span><br><span class="line">        pushdown(id);</span><br><span class="line">        <span class="built_in">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (nowr&lt;l || r&lt;nowl) <span class="built_in">return</span>;</span><br><span class="line">    change(id*2,l,r,v); change(id*2+1,l,r,v);</span><br><span class="line">    tr[id].val=max(tr[id*2].val,tr[id*2+1].val);</span><br><span class="line">&#125;</span><br><span class="line">int query(int id,int l,int r) &#123;</span><br><span class="line">    int nowl=tr[id].lt,nowr=tr[id].rt;</span><br><span class="line">    pushdown(id);</span><br><span class="line">    <span class="keyword">if</span> (l&lt;=nowl &amp;&amp; nowr&lt;=r) <span class="built_in">return</span> tr[id].val;</span><br><span class="line">    <span class="keyword">if</span> (nowr&lt;l || r&lt;nowl) <span class="built_in">return</span> -inf;</span><br><span class="line">    <span class="built_in">return</span> max(query(id*2,l,r),query(id*2+1,l,r));</span><br><span class="line">&#125;</span><br><span class="line">int <span class="function"><span class="title">main</span></span>()&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span> (int i=1; i&lt;=n; i++) cin&gt;&gt;x[i];</span><br><span class="line">    build(1,1,n);</span><br><span class="line">    cin&gt;&gt;m;</span><br><span class="line">    <span class="keyword">while</span> (m--) &#123;</span><br><span class="line">        char now; int p,q,r;</span><br><span class="line">        cin&gt;&gt;now;</span><br><span class="line">        <span class="keyword">if</span> (now==<span class="string">'C'</span>) &#123;  //Change</span><br><span class="line">            cin&gt;&gt;p&gt;&gt;q&gt;&gt;r;</span><br><span class="line">            change(1,p,q,r);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123; //Query</span><br><span class="line">            cin&gt;&gt;p&gt;&gt;q;</span><br><span class="line">            cout&lt;&lt;query(1,p,q)&lt;&lt;endl;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -353,6 +353,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/16/now/" rel="prev" title="now">
+                now <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -420,7 +424,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -470,7 +474,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -488,7 +492,7 @@
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
 
 
 
